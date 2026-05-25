@@ -11,15 +11,15 @@ interface Props {
 }
 const EventCard = ({ title, image, slug, location, date, time }: Props) => {
   return (
-    <Link href={`/events/${slug}`} className="event-card" id="event-card">
-      <Image
+    <Link href={`/event/${slug}`} className="event-card" id="event-card">
+      {/* <Image
         src={image}
         alt={title}
         width={410}
         height={300}
         style={{ width: "100%", height: "auto" }}
         className="poster"
-      />
+      /> */}
       <div className="flex flex-row gap-2">
         <Image src="/icons/pin.svg" alt="location" width={14} height={14} />
         <p>{location}</p>
@@ -27,21 +27,11 @@ const EventCard = ({ title, image, slug, location, date, time }: Props) => {
       <p className="title">{title}</p>
       <div className="datetime">
         <div>
-          <Image
-            src="/icons/calendar.svg"
-            alt="date"
-            width={14}
-            height={14}
-          />
-          <p>{date}</p>
+          <Image src="/icons/calendar.svg" alt="date" width={14} height={14} />
+          <p>{new Date(date).toLocaleDateString("es-ES")}</p>
         </div>
-         <div>
-          <Image
-            src="/icons/clock.svg"
-            alt="time"
-            width={14}
-            height={14}
-          />
+        <div>
+          <Image src="/icons/clock.svg" alt="time" width={14} height={14} />
           <p>{time}</p>
         </div>
       </div>
